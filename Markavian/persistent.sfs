@@ -1,6 +1,6 @@
 GAME
 {
-	version = 0.24.2
+	version = 0.25.0
 	Title = Markavian (CAREER)
 	Description = No description available.
 	linkURL = 
@@ -12,6 +12,7 @@ GAME
 	launchID = 56
 	PARAMETERS
 	{
+		preset = Normal
 		FLIGHT
 		{
 			CanQuickSave = True
@@ -60,15 +61,29 @@ GAME
 		}
 		DIFFICULTY
 		{
+			AutoHireCrews = True
 			MissingCrewsRespawn = True
+			BypassEntryPurchaseAfterResearch = True
 			AllowStockVessels = False
+			IndestructibleFacilities = False
+		}
+		CAREER
+		{
+			StartingFunds = 25000
+			StartingScience = 0
+			StartingReputation = 0
+			FundsGainMultiplier = 1
+			RepGainMultiplier = 1
+			ScienceGainMultiplier = 1
+			FundsLossMultiplier = 1
+			RepLossMultiplier = 1
 		}
 	}
 	SCENARIO
 	{
 		name = ScenarioDiscoverableObjects
 		scene = 7, 8, 5
-		 = 362033603
+		 = 0
 		sizeCurve
 		{
 			key = 0 0 1.5 1.5
@@ -81,7 +96,7 @@ GAME
 	{
 		name = ContractSystem
 		scene = 7, 8, 5, 6, 9
-		update = 74191725.3725564
+		update = 74191782.3725445
 		CONTRACTS
 		{
 			CONTRACT
@@ -6267,6 +6282,8 @@ GAME
 			part = Mark1Cockpit
 			part = probeCoreSphere
 			part = sasModule
+			part = wingConnector2
+			part = StandardCtrlSrf
 		}
 		Tech
 		{
@@ -6418,6 +6435,7 @@ GAME
 			part = probeCoreCube
 			part = probeStackLarge
 			part = probeStackSmall
+			part = mk2DroneCore
 		}
 		Tech
 		{
@@ -6491,6 +6509,13 @@ GAME
 			part = JetEngine
 			part = MK1Fuselage
 			part = airScoop
+			part = MK1IntakeFuselage
+			part = wingConnector
+			part = wingConnector3
+			part = structuralWing
+			part = structuralWing2
+			part = sweptWing1
+			part = sweptWing2
 		}
 		Tech
 		{
@@ -6508,6 +6533,12 @@ GAME
 			part = nacelleBody
 			part = radialEngineBody
 			part = CircularIntake
+			part = mk2CargoBayL
+			part = mk2Cockpit.Standard
+			part = mk2FuselageLongLFO
+			part = elevon2
+			part = elevon3
+			part = wingStrake
 		}
 		Tech
 		{
@@ -6537,6 +6568,14 @@ GAME
 			part = wingConnector
 			part = structuralPylon
 			part = structuralWing
+			part = mk2.1m.Bicoupler
+			part = mk2.1m.AdapterLong
+			part = mk2CargoBayS
+			part = mk2CrewCabin
+			part = mk2DockingPort
+			part = wingConnector4
+			part = smallCtrlSrf
+			part = structuralWing4
 		}
 		Tech
 		{
@@ -6545,6 +6584,14 @@ GAME
 			part = turboFanEngine
 			part = smallHardpoint
 			part = ramAirIntake
+			part = IntakeRadialLong
+			part = mk2FuselageShortLFO
+			part = mk2FuselageShortLiquid
+			part = mk2FuselageShortMono
+			part = wingConnector5
+			part = delta.small
+			part = structuralWing3
+			part = mk2Cockpit.Inline
 		}
 		Tech
 		{
@@ -6599,6 +6646,8 @@ GAME
 			part = AdvancedCanard
 			part = RAPIER
 			part = toroidalAerospike
+			part = shockConeIntake
+			part = elevon5
 		}
 		Tech
 		{
@@ -8081,11 +8130,181 @@ GAME
 		scene = 7, 8, 5, 6, 9
 		rep = 989.8633
 	}
+	SCENARIO
+	{
+		name = StrategySystem
+		scene = 7, 8, 5, 6, 9
+		STRATEGIES
+		{
+		}
+	}
+	SCENARIO
+	{
+		name = ScenarioDestructibles
+		scene = 5, 7, 6, 9, 8
+		SpaceCenter/KSCAdminBuilding/mainBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/KSCCrewBuilding/building
+		{
+			intact = True
+		}
+		SpaceCenter/FlagPole
+		{
+			intact = True
+		}
+		SpaceCenter/KSCLaunchPad/LaunchPadMedium/ksp_pad_cylTank
+		{
+			intact = True
+		}
+		SpaceCenter/KSCLaunchPad/LaunchPadMedium/ksp_pad_launchPad
+		{
+			intact = True
+		}
+		SpaceCenter/KSCLaunchPad/LaunchPadMedium/ksp_pad_sphereTank
+		{
+			intact = True
+		}
+		SpaceCenter/KSCLaunchPad/LaunchPadMedium/ksp_pad_waterTower
+		{
+			intact = True
+		}
+		SpaceCenter/KSCLaunchPad/LaunchPadMedium/KSCFlagPoleLaunchPad
+		{
+			intact = True
+		}
+		SpaceCenter/KSCMissionControl/building
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRnDFacility/ksp_pad_cylTank
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRnDFacility/SmallLab
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRnDFacility/CentralBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRnDFacility/MainBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRnDFacility/CornerLab
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRnDFacility/WindTunnel
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRnDFacility/Observatory
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRnDFacility/SideLab
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRunway/model_runway_new_v43/runway_light_SE
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRunway/model_runway_new_v43/runway_light_NE
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRunway/model_runway_new_v43/runway_light_NW
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRunway/model_runway_new_v43/runway_light_SW
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRunway/End09
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRunway/End27
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRunway/Section1
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRunway/Section2
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRunway/Section3
+		{
+			intact = True
+		}
+		SpaceCenter/KSCRunway/Section4
+		{
+			intact = True
+		}
+		SpaceCenter/KSCSpacePlaneHangar/Tank
+		{
+			intact = True
+		}
+		SpaceCenter/KSCSpacePlaneHangar/ksp_pad_cylTank
+		{
+			intact = True
+		}
+		SpaceCenter/KSCSpacePlaneHangar/ksp_pad_waterTower
+		{
+			intact = True
+		}
+		SpaceCenter/KSCSpacePlaneHangar/mainBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/KSCTrackingStation/dish_array/dish_south
+		{
+			intact = True
+		}
+		SpaceCenter/KSCTrackingStation/dish_array/dish_north
+		{
+			intact = True
+		}
+		SpaceCenter/KSCTrackingStation/dish_array/dish_east
+		{
+			intact = True
+		}
+		SpaceCenter/KSCTrackingStation/MainBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/KSCVehicleAssemblyBuilding/ksp_pad_cylTank
+		{
+			intact = True
+		}
+		SpaceCenter/KSCVehicleAssemblyBuilding/Tank
+		{
+			intact = True
+		}
+		SpaceCenter/KSCVehicleAssemblyBuilding/mainBuilding
+		{
+			intact = True
+		}
+		SpaceCenter/KSCVehicleAssemblyBuilding/PodMemorial
+		{
+			intact = True
+		}
+	}
 	FLIGHTSTATE
 	{
-		version = 0.24.2
-		UT = 74191731.2725552
+		version = 0.25.0
+		UT = 74191788.0925433
 		activeVessel = 0
+		mapViewFiltering = -1026
 		VESSEL
 		{
 			pid = fb54b78ec56a4252a7906b9087f42c5d
@@ -8114,13 +8333,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = 297046.08975031
+				SMA = 297046.089868905
 				ECC = 1
 				INC = NaN
-				LPE = 4.58067863436371
-				LAN = 133.560759905614
+				LPE = 34.0721126298819
+				LAN = 164.171037018099
 				MNA = 3.14159265358979
-				EPH = 74191715.2525585
+				EPH = 74191782.3125445
 				REF = 1
 			}
 			PART
@@ -17715,13 +17934,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = 101200.488664289
+				SMA = 0
 				ECC = 1
 				INC = NaN
-				LPE = 64.7941531825546
-				LAN = 133.560759905614
-				MNA = 3.14159265358979
-				EPH = 74191715.2525585
+				LPE = 95.1667575437843
+				LAN = 164.171037018099
+				MNA = -8.40714670366795
+				EPH = 74191782.3125445
 				REF = 2
 			}
 			PART
@@ -17897,13 +18116,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = 329679.192738644
+				SMA = NaN
 				ECC = 1
 				INC = NaN
-				LPE = 82.8780488079664
-				LAN = 133.560759905614
-				MNA = 3.14159265358979
-				EPH = 74191715.2525585
+				LPE = 112.978861135038
+				LAN = 164.171037018099
+				MNA = -8.40714670366795
+				EPH = 74191782.3125445
 				REF = 5
 			}
 			PART
@@ -19826,13 +20045,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = 0
+				SMA = NaN
 				ECC = 1
 				INC = NaN
-				LPE = 77.2652321833698
-				LAN = 133.560759905614
+				LPE = 46.8312911204528
+				LAN = 164.171037018099
 				MNA = -8.40714670366795
-				EPH = 74191715.2525585
+				EPH = 74191782.3125445
 				REF = 2
 			}
 			PART
@@ -23879,13 +24098,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = 100975.814609773
+				SMA = 100975.732854253
 				ECC = 1
 				INC = NaN
-				LPE = 59.7739372800576
-				LAN = 133.560759905614
+				LPE = 29.3375575226417
+				LAN = 164.171037018099
 				MNA = 3.14159265358979
-				EPH = 74191715.2525585
+				EPH = 74191782.3125445
 				REF = 2
 			}
 			PART
@@ -26157,13 +26376,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = NaN
+				SMA = 154860.943190085
 				ECC = 1
 				INC = NaN
-				LPE = 164.756274135055
-				LAN = 133.560759905614
-				MNA = -8.40714670366795
-				EPH = 74191715.2525585
+				LPE = 152.774087043023
+				LAN = 164.171037018099
+				MNA = 3.14159265358979
+				EPH = 74191782.3125445
 				REF = 7
 			}
 			PART
@@ -28264,10 +28483,10 @@ GAME
 				SMA = NaN
 				ECC = 1
 				INC = NaN
-				LPE = 108.522163456698
-				LAN = 133.560759905614
+				LPE = 137.05144204552
+				LAN = 164.171037018099
 				MNA = -8.40714670366795
-				EPH = 74191715.2525585
+				EPH = 74191782.3125445
 				REF = 3
 			}
 			PART
@@ -28443,13 +28662,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = 0
+				SMA = 157254.121050252
 				ECC = 1
 				INC = NaN
-				LPE = 101.816441673355
-				LAN = 133.560759905614
-				MNA = -8.40714670366795
-				EPH = 74191715.2525585
+				LPE = 71.7503130891334
+				LAN = 164.171037018099
+				MNA = 3.14159265358979
+				EPH = 74191782.3125445
 				REF = 6
 			}
 			PART
@@ -30525,16 +30744,16 @@ GAME
 			landed = True
 			landedAt = 
 			splashed = False
-			met = 57486623.3034438
+			met = 58239903.7619493
 			lct = 15951878.5305952
 			root = 0
-			lat = 17.4145886685253
-			lon = -56.8715167384292
-			alt = 1064.24415594048
-			hgt = 0.112348
-			nrm = -0.004575968,0.9986327,0.05207821
-			rot = 0.2107011,0.796034,-0.5634947,-0.06639725
-			CoM = 0.000233382,0.4193147,6.086379E-05
+			lat = 17.4145888828953
+			lon = -56.8715167520424
+			alt = 1064.34639503574
+			hgt = 0.1122947
+			nrm = -0.003816843,0.9986385,0.05202375
+			rot = 0.2112908,0.7959062,-0.5634394,-0.06652477
+			CoM = 0.0002839863,0.4193002,0.000152424
 			stg = 0
 			prst = False
 			ref = 0
@@ -30544,13 +30763,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = 269294.327565939
+				SMA = 267179.588956545
 				ECC = 1
 				INC = NaN
-				LPE = 149.621204416762
-				LAN = 133.560759905614
+				LPE = 121.996855143801
+				LAN = 164.171037018099
 				MNA = 3.14159265358979
-				EPH = 74191715.2525585
+				EPH = 74191782.3125445
 				REF = 9
 			}
 			PART
@@ -30572,7 +30791,7 @@ GAME
 				attN = top, 1
 				attN = None, -1
 				mass = 0.25
-				temp = -2.685724
+				temp = -2.67777
 				expt = 0.5
 				state = 0
 				connected = False
@@ -30698,7 +30917,7 @@ GAME
 				attN = top, 8
 				attN = bottom, 0
 				mass = 0.05
-				temp = -2.695237
+				temp = -2.687292
 				expt = 0.5
 				state = 0
 				connected = True
@@ -30745,7 +30964,7 @@ GAME
 				sym = 7
 				srfN = srfAttach, 1
 				mass = 0.0175
-				temp = -2.676102
+				temp = -2.668176
 				expt = 0.5
 				state = 0
 				connected = True
@@ -30763,7 +30982,7 @@ GAME
 				{
 					name = ModuleDeployableSolarPanel
 					isEnabled = True
-					currentRotation = (-0.4416239, -0.4416342, -0.5522335, 0.5522369)
+					currentRotation = (-0.5, -0.5, -0.5, 0.5)
 					stateString = BROKEN
 					storedAnimationTime = 0
 					storedAnimationSpeed = 1
@@ -30831,7 +31050,7 @@ GAME
 				sym = 7
 				srfN = srfAttach, 1
 				mass = 0.0175
-				temp = -2.672878
+				temp = -2.664992
 				expt = 0.5
 				state = 0
 				connected = True
@@ -30917,7 +31136,7 @@ GAME
 				sym = 7
 				srfN = srfAttach, 1
 				mass = 0.0175
-				temp = -2.66966
+				temp = -2.661814
 				expt = 0.5
 				state = 0
 				connected = True
@@ -30935,10 +31154,10 @@ GAME
 				{
 					name = ModuleDeployableSolarPanel
 					isEnabled = True
-					currentRotation = (-0.6887513, -0.6887285, -0.1601269, 0.1601072)
+					currentRotation = (-0.6882851, -0.6882624, -0.1621189, 0.1620991)
 					stateString = EXTENDED
 					storedAnimationTime = 0
-					storedAnimationSpeed = 1
+					storedAnimationSpeed = 0
 					EVENTS
 					{
 						Extend
@@ -31003,7 +31222,7 @@ GAME
 				sym = 7
 				srfN = srfAttach, 1
 				mass = 0.0175
-				temp = -2.666489
+				temp = -2.658644
 				expt = 0.5
 				state = 0
 				connected = True
@@ -31021,10 +31240,10 @@ GAME
 				{
 					name = ModuleDeployableSolarPanel
 					isEnabled = True
-					currentRotation = (-0.614597, -0.6146107, -0.3496305, 0.3496899)
+					currentRotation = (-0.6143287, -0.6143424, -0.3501015, 0.3501609)
 					stateString = EXTENDED
 					storedAnimationTime = 0
-					storedAnimationSpeed = 1
+					storedAnimationSpeed = 0
 					EVENTS
 					{
 						Extend
@@ -31089,7 +31308,7 @@ GAME
 				sym = 7
 				srfN = srfAttach, 1
 				mass = 0.0175
-				temp = -2.663317
+				temp = -2.655482
 				expt = 0.5
 				state = 0
 				connected = True
@@ -31175,7 +31394,7 @@ GAME
 				sym = 6
 				srfN = srfAttach, 1
 				mass = 0.0175
-				temp = -2.660146
+				temp = -2.652327
 				expt = 0.5
 				state = 0
 				connected = True
@@ -31193,7 +31412,7 @@ GAME
 				{
 					name = ModuleDeployableSolarPanel
 					isEnabled = True
-					currentRotation = (-0.2595978, -0.2595897, -0.657728, 0.6577356)
+					currentRotation = (-0.5, -0.5, -0.5, 0.5)
 					stateString = BROKEN
 					storedAnimationTime = 0
 					storedAnimationSpeed = 1
@@ -31258,7 +31477,7 @@ GAME
 				attN = top, 13
 				attN = bottom, 1
 				mass = 0.01
-				temp = -2.680851
+				temp = -2.67309
 				expt = 0.5
 				state = 0
 				connected = True
@@ -31275,7 +31494,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 199.999781481472
+					amount = 199.621744427218
 					maxAmount = 200
 					flowState = True
 					isTweakable = True
@@ -31301,7 +31520,7 @@ GAME
 				srfN = srfAttach, 8
 				attN = None, -1
 				mass = 0.005
-				temp = -2.668966
+				temp = -2.661168
 				expt = 0.5
 				state = 0
 				connected = True
@@ -31329,8 +31548,9 @@ GAME
 						{
 							active = True
 							guiActive = True
+							guiActiveEditor = True
 							guiIcon = Toggle
-							guiName = Extend
+							guiName = Retract
 							category = Toggle
 							guiActiveUnfocused = False
 							unfocusedRange = 2
@@ -31396,7 +31616,7 @@ GAME
 				attm = 1
 				srfN = srfAttach, 8
 				mass = 0.005
-				temp = -2.665711
+				temp = -2.658001
 				expt = 0.5
 				state = 0
 				connected = True
@@ -31531,7 +31751,7 @@ GAME
 				attm = 1
 				srfN = srfAttach, 8
 				mass = 0.005
-				temp = -2.662524
+				temp = -2.654841
 				expt = 0.5
 				state = 0
 				connected = True
@@ -31666,7 +31886,7 @@ GAME
 				attm = 1
 				srfN = srfAttach, 8
 				mass = 0.005
-				temp = -2.659398
+				temp = -2.65169
 				expt = 0.5
 				state = 0
 				connected = True
@@ -31803,7 +32023,7 @@ GAME
 				attN = top, 14
 				attN = bottom, 8
 				mass = 0.05
-				temp = -2.667471
+				temp = -2.659787
 				expt = 0.5
 				state = 0
 				connected = True
@@ -31847,7 +32067,7 @@ GAME
 				attN = bottom, 13
 				attN = top, 15
 				mass = 0.04
-				temp = -2.666388
+				temp = -2.658705
 				expt = 0
 				state = 0
 				connected = True
@@ -31990,7 +32210,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 9.99978148147155
+					amount = 9.62174442725496
 					maxAmount = 10
 					flowState = True
 					isTweakable = True
@@ -32016,7 +32236,7 @@ GAME
 				srfN = None, -1
 				attN = bottom, 14
 				mass = 0.1
-				temp = -2.661732
+				temp = -2.654102
 				expt = 0.5
 				state = 0
 				connected = True
@@ -32140,7 +32360,7 @@ GAME
 				attm = 1
 				srfN = srfAttach, 13
 				mass = 1E-05
-				temp = -2.65915
+				temp = -2.651464
 				expt = 0.5
 				state = 0
 				connected = True
@@ -32221,22 +32441,37 @@ GAME
 							unlockTechs = flightControl
 							srfHdg
 							{
-								val = 90
+								_val = 90
 								_text = 90
 							}
 							srfPit
 							{
-								val = 90
+								_val = 90
 								_text = 90
 							}
 							srfRol
 							{
-								val = 0
+								_val = 0
+								_text = 0
+							}
+							srfVelYaw
+							{
+								_val = 0
+								_text = 0
+							}
+							srfVelPit
+							{
+								_val = 0
+								_text = 0
+							}
+							srfVelRol
+							{
+								_val = 0
 								_text = 0
 							}
 							rol
 							{
-								val = 0
+								_val = 0
 								_text = 0
 							}
 						}
@@ -32252,6 +32487,7 @@ GAME
 						}
 						MechJebModuleSpaceplaneGuidance
 						{
+							runwayIndex = 0
 							unlockParts = 
 							unlockTechs = unmannedTech
 						}
@@ -32278,12 +32514,12 @@ GAME
 							unlockTechs = 
 							heading
 							{
-								val = 0
+								_val = 0
 								_text = 0
 							}
 							speed
 							{
-								val = 10
+								_val = 10
 								_text = 10
 							}
 						}
@@ -32346,7 +32582,7 @@ GAME
 							unlockTechs = advFlightControl
 							phaseAngle
 							{
-								val = 0
+								_val = 0
 								_text = 0
 							}
 						}
@@ -32373,7 +32609,7 @@ GAME
 							unlockTechs = 
 							touchdownSpeed
 							{
-								val = 0.1
+								_val = 0.5
 								_text = 0.1
 							}
 							limitGearsStage
@@ -32405,7 +32641,7 @@ GAME
 							unlockTechs = 
 							rol
 							{
-								val = 0
+								_val = 0
 								_text = 0
 							}
 						}
@@ -32441,6 +32677,7 @@ GAME
 						}
 						MechJebModuleLandingGuidance
 						{
+							landingSiteIdx = 0
 							unlockParts = 
 							unlockTechs = unmannedTech
 						}
@@ -32471,7 +32708,7 @@ GAME
 							unlockTechs = 
 							maxThrottle
 							{
-								val = 1
+								_val = 1
 								_text = 100
 							}
 						}
@@ -32481,7 +32718,7 @@ GAME
 							unlockTechs = 
 							Tf
 							{
-								val = 1
+								_val = 1
 								_text = 1
 							}
 						}
@@ -32504,14 +32741,14 @@ GAME
 						{
 							markUT = 15951878.5505952
 							deltaVExpended = 7861.06871912105
-							dragLosses = 2912.13246046132
-							gravityLosses = -443006.619060019
+							dragLosses = NaN
+							gravityLosses = -443087.787088233
 							steeringLosses = 11220.0030673471
 							markLatitude = -0.00499577415868034
 							markLongitude = -2.08854707221708
 							markAltitude = 7502.31200346812
 							markBodyIndex = 1
-							maxDragGees = 27.7645434220471
+							maxDragGees = NaN
 							unlockParts = 
 							unlockTechs = 
 						}
@@ -32576,7 +32813,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 4.99978148147155
+					amount = 4.62174442725496
 					maxAmount = 5
 					flowState = True
 					isTweakable = True
@@ -34769,13 +35006,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = 0
+				SMA = 370260.703094486
 				ECC = 1
 				INC = NaN
-				LPE = 133.971417924354
-				LAN = 133.560759905614
-				MNA = -8.40714670366795
-				EPH = 74191715.2525585
+				LPE = 103.665866214816
+				LAN = 164.171037018099
+				MNA = 3.14159265358979
+				EPH = 74191782.3125445
 				REF = 5
 			}
 			PART
@@ -44632,13 +44869,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = 0
+				SMA = NaN
 				ECC = 1
 				INC = NaN
-				LPE = 167.88268750557
-				LAN = 133.560759905614
+				LPE = 152.718699539457
+				LAN = 164.171037018099
 				MNA = -8.40714670366795
-				EPH = 74191715.2525585
+				EPH = 74191782.3125445
 				REF = 6
 			}
 			PART
@@ -70821,10 +71058,10 @@ GAME
 				SMA = NaN
 				ECC = 1
 				INC = NaN
-				LPE = 167.88468947853
-				LAN = 133.560759905614
-				MNA = -8.40714670366795
-				EPH = 74191715.2525585
+				LPE = 152.719619300635
+				LAN = 164.171037018099
+				MNA = 0
+				EPH = 74191782.3125445
 				REF = 6
 			}
 			PART
@@ -76389,13 +76626,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = NaN
+				SMA = 252576.814268235
 				ECC = 1
 				INC = NaN
-				LPE = 167.901901062576
-				LAN = 133.560759905614
-				MNA = -8.40714670366795
-				EPH = 74191715.2525585
+				LPE = 153.069500546356
+				LAN = 164.171037018099
+				MNA = 3.14159265358979
+				EPH = 74191782.3125445
 				REF = 6
 			}
 			PART
@@ -87186,13 +87423,13 @@ GAME
 			cMod = -1
 			ORBIT
 			{
-				SMA = NaN
+				SMA = 0
 				ECC = 1
 				INC = NaN
-				LPE = 133.957372928807
-				LAN = 133.560759905614
+				LPE = 103.626123232101
+				LAN = 164.171037018099
 				MNA = -8.40714670366795
-				EPH = 74191715.2525585
+				EPH = 74191782.3125445
 				REF = 5
 			}
 			PART
